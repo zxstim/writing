@@ -11,7 +11,7 @@ export async function GET(_req: Request, { params }: RouteContext<'/writing/og/d
   if (!page) notFound();
 
   return new ImageResponse(
-    <DefaultImage title={page.data.title} description={page.data.description} site="My App" />,
+    <DefaultImage title={page.data.title} description={page.data.description} site="ZxStim" />,
     {
       width: 1200,
       height: 630,

@@ -6,6 +6,10 @@ const withMDX = createMDX();
 const config = {
   reactStrictMode: true,
   assetPrefix: '/writing',
+  images: {
+    // path prefix for Image Optimization API
+    path: '/writing/_next/image',
+  },
 };
 
 export default withMDX(config);
