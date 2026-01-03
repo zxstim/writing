@@ -1,11 +1,9 @@
-import { blog } from "@/lib/source";
-import BlogCard from "@/components/blog-card";
+import BlogList from "@/components/blog-list";
 
 export default function HomePage() {
-  const posts = blog.getPages();
-  
+
   return (
-    <div className="flex flex-col gap-2 px-8 md:px-16 lg:px-16">
+    <div className="flex flex-col gap-2 px-8 md:px-16 lg:px-16 pb-12">
       <div className="flex flex-col items-center md:items-start lg:items-start justify-center h-[330px]">
         <p className="px-4 py-2 mb-16 text-sm border-2 rounded-full border-secondary">
           Welcome to my writing space!
@@ -28,22 +26,7 @@ export default function HomePage() {
           </Link>
         </div> */}
       </div>
-      <div className="flex flex-col gap-2">
-      <h1 className="text-4xl font-bold mb-8">Latest blog posts</h1>
-      <div className="flex flex-row gap-2">
-        <button>
-          All
-        </button>
-        <button>
-          English
-        </button>
-      </div>
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime()).map((post) => (
-          <BlogCard key={post.url} post={post} />
-        ))}
-      </div>
-      </div>
+      <BlogList />
     </div>
   );
 }
