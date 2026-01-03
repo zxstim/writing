@@ -1,5 +1,5 @@
 import { docs } from "fumadocs-mdx:collections/server";
-import { type InferPageType, loader } from "fumadocs-core/source";
+import { type InferPageType, loader, multiple } from "fumadocs-core/source";
 import { lucideIconsPlugin } from "fumadocs-core/source/lucide-icons";
 import { toFumadocsSource } from "fumadocs-mdx/runtime/server";
 import { blogPosts } from "fumadocs-mdx:collections/server";

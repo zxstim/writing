@@ -15,8 +15,8 @@ export default async function Page(props: {
   if (!page) notFound();
   const Mdx = page.data.body;
   return (
-    <>
-      <div className="flex flex-col gap-8 w-full max-w-[700px] mx-auto px-4 py-12 md:px-8">
+    <div className="flex flex-col py-12 gap-4 px-4">
+      <div className="flex flex-col gap-8 w-full max-w-[700px] mx-auto ">
         <div className="flex flex-row gap-4 text-sm">
           <div className="flex flex-col">
             <p className="mb-1 text-fd-muted-foreground">Author</p>
@@ -42,7 +42,7 @@ export default async function Page(props: {
         </div>
         <div className="flex flex-row items-center justify-between gap-4">
           <Link
-            href="/writing/blog"
+            href="/writing"
             className="flex flex-row items-center gap-2 hover:underline hover:underline-offset-4"
           >
             <ChevronLeft className="w-4 h-4" />
@@ -51,13 +51,13 @@ export default async function Page(props: {
           <CopyButton />
         </div>
       </div>
-      <article className="w-full max-w-[700px] mx-auto flex flex-col px-4">
-        <div className="prose min-w-0 px-4">
+      <article className="w-full max-w-[700px] mx-auto flex flex-col">
+        <div className="prose min-w-0">
           <InlineTOC items={page.data.toc} />
           <Mdx components={defaultMdxComponents} />
         </div>
       </article>
-    </>
+    </div>
   );
 }
 
