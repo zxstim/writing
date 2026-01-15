@@ -1,0 +1,13 @@
+---
+title: Không Thể Giấu Mã Nguồn Trên Blockchain
+author: zxstim
+date: 2026-01-14
+language: vi
+thumbnail: khong-the-giau-ma-nguon-tren-blockchain.png
+---
+
+Vừa rồi có một dự án tên là TruBit bị hacker tấn công và trộm luôn ~8535 ETH (tương đương $26.44M). Nguyên nhân chính theo phân tích từ công ty an ninh SlowMist thì trong contract có một hàm dùng để tính giá token để in ra thì có lỗi overflow trong một phép tính dù đã sử dụng thư viện SafeMath cho tất cả phép tính còn lại (do compile với solidity phiên bản 0.6.10 thì chưa có tính năng kiểm tra overflow). Thế là hacker đã gửi vào một yêu cầu in với số token nhất định, làm phép tính bị overflow, và cho phép in token với giá gần như bằng 0, sau đó gọi làm burn và huỷ hết tất cả số token đó đổi lại số ETH đang tồn tại trong contract. Chi tiết phân tích của SlowMist mình có kèm dưới bình luận.
+
+Điều đáng nói là contract này không có mở mã nguồn. Trên Etherscan cũng không xác minh mã nguồn của contract. Chỉ có đống bytecode của contract. Đây là điểm mà mình hay nhắc các bạn lập trình viên blockchain mới là ngay cả khi bạn không mở mã nguồn của bạn vì bạn nghĩ nó sẽ giúp bạn bảo mật tốt hơn, hacker vẫn có khả năng decompile cái đống bytecode kia và mò lỗ hổng. Nhất là khi giá trị tấn công đủ để hacker phỏng đoán có nên bỏ công hay không. Vậy nên, rất nhiều giao thức bây giờ đều có mã nguồn mở để cho cộng đồng vào hỗ trợ kiểm tra, cùng với một chương trình bug bounty hậu hĩnh cho các white hat. Đó là còn chưa đề cập đến khả năng nhân sự dự án bị mua chuộc và bán mã nguồn cho hacker.
+
+Cái làm nên một dự án blockchain bền bỉ và có giá trị không nằm ở mã nguồn. Nó là tổng thể của nhiều yếu tố công nghệ và con người. Ví dụ như giao thức Uniswap luôn để mã nguồn mở, còn có chương trình beta trên testnet kéo dài để cho cộng đồng chọc ngoáy hết mình nhằm tìm kiếm các lỗi không ngờ tới. Họ không sợ bị chôm ý tưởng (đầy các bên fork mã nguồn Uniswap ngay cả khi sai phạm license) vì họ biết rằng nhiều người lựa chọn sử dụng Uniswap là vì thương hiệu và sự tâm huyết trau chuốt sản phẩm của họ.
