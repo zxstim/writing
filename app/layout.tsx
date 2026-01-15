@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 export default function Layout({ children }: LayoutProps<'/'>) {
   return (
     <html lang="en" className={jetBrainsMono.className} suppressHydrationWarning>
-      <body className="flex flex-col min-h-screen">
+      <body className="flex flex-col min-h-screen pb-12">
         <RootProvider>{children}</RootProvider>
       </body>
     </html>

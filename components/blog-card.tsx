@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { blog } from "@/lib/source";
 import { type InferPageType } from "fumadocs-core/source";
-import Image from "next/image";
 
 export default function BlogCard({
   post,
