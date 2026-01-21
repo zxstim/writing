@@ -1,0 +1,15 @@
+---
+title: Suy Nghĩ Về Cách Xây Dựng DeFi Protocol Mới
+author: zxstim
+date: 2026-01-15
+language: vi
+thumbnail: suy-nghi-ve-cach-xay-dung-defi-protocol-moi.png
+---
+
+Hôm qua mình có tình cờ đọc được một bài bình luận về vụ hack của Bunni do Devan (founding engineer của Staked đã được mua lại bởi Kraken). Mình cực kỳ thích cái phần mà Devan nói về là chúng ta đang gây áp lực tiêu cực tới những người muốn thúc đẩy phát triển sáng tạo trong thiết kế giao thức DeFi (chi phí audit cao, sai lầm thì mất triệu đô), nên thành ra nhiều giao thức DeFi chỉ dừng lại ở mức copy lẫn nhau một cách rẻ tiền, không có bất kỳ một cái sáng tạo gì (ấy vậy mà vẫn bị hack như lũ fork của Aave). Devan có một giải pháp là xây dựng một Ethereum Layer 2 với block space "an toàn" ứng dụng một AI model liên tục quét "intent" (sơ sơ là mục đích) của giao dịch. Khi phát hiện các giao dịch có "intent" giống như các vụ hack (như re-entrancy, rounding exploit) thì sẽ reject những giao dịch đó. Tớ thì có cái ý tưởng này cũng khá giống do bản thân mình vẫn chưa tin AI model hoàn toàn vì vẫn có thể bị lừa hoặc dính một số exception.
+
+Một giao thức sẽ bao gồm 2 bộ smart contract, 1 DepositVault và tổ hợp Protocol contract. DepositVault contract (có cấu trúc siêu đơn giản và standardize) sẽ là nơi mọi người gửi token vào để sử dụng giao thức. Khi bạn gửi token vào thì DepositVault contract sẽ ánh xạ tới tổ hợp Protocol contract để tạo ra phiên bản mirrorToken. Trong tổ hợp Protocol contract, bạn sẽ sử dụng những mirrorToken này để tương tác với các logic của protocol. Sau đó, cứ 1 giờ (hay 3600 giây) thì sẽ bất kỳ ai đó gọi một cái settlement public function trong tổ hợp Protocol Contract để đồng nhất số dư với DepositVault (cập nhật trạng thái mới nhất) để người dùng có thể rút ra. Khi hacker tấn công và lấy hết token đi, hacker sẽ chỉ có mirrorToken vô giá trị trong khung giờ đó, tổ hợp protocol contract có 1 freeze function được quản lý bởi security council để khi có vụ hack, security council sẽ gọi freeze function để dừng hoạt động và chặn việc đồng nhất số dư với DepositVault. Thế là mọi người sẽ rút tài sản ra giống với trạng thái lần đồng nhất cuối cùng (tương tự như một chain rollback nhưng chain không cần phải rollback, gọi là state rollback hoặc chính xác hơn là time delay execution).
+
+Ví dụ, Protocol bạn dùng để Swap token, người dùng 1 gửi vào DepositVault 100 tokenA. DepositVault ánh xạ qua SwapProtocol 100 mirrorTokenA. Bạn sẽ trao đổi 100 mirrorTokenA này thành 10 mirrorTokenB. Sau đó bạn chờ 1 giờ để chờ số dư đồng nhất bên DepositVault (100 tokenA của bạn đổi thành 10 tokenB có giá trị thật) rồi bạn rút tokenB ra.
+
+Mình nghĩ có một số vấn đề cần suy nghĩ thêm nhưng đây là một thiết kế có khả thi trong việc phản ứng với việc bị hack. Vẫn permissionless khi function settlement là public. Nếu security council trở mặt, dừng protocol thì bạn vẫn rút tài sản ra được (tuy sẽ bị state rollback) nhưng thiệt hại sẽ ít hơn. Nếu ai có ý kiến hay bình luận góp ý thì cứ thoải mái nhé. Mình sẽ viết POC sớm cho ý tưởng này, hi vọng ra được 1 ERC mới cho cộng đồng.
