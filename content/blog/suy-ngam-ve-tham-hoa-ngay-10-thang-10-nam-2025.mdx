@@ -1,0 +1,26 @@
+---
+title: Suy Ngẫm Về Thảm Hoạ Ngày 10 Tháng 10 Năm 2025
+author: zxstim
+date: 2026-02-02
+language: vi
+thumbnail: suy-ngam-ve-tham-hoa-ngay-10-thang-10-nam-2025.png
+---
+
+Đến ngày hôm nay, chúng ta vẫn chưa xác định chính xác nguyên nhân chính gây ra cú sập nặng nề vào ngày 10 tháng 10 năm 2025. Thị trường lao dốc cực kỳ nhanh, giá nhiều alt coin bị chạm vào mức thấp bất thường, hàng chục tỷ USD bị thanh lý.
+
+OKX CEO Star Xu thì khẳng định Binance là nguyên nhân chính dẫn đến cú sập ngày 10 tháng 10. Star Xu dẫn chứng Binance trước đó có vận hành một chiến dịch nạp USDe và nhận lãi 12% mỗi năm, và cho phép dùng USDe làm tài sản thế chấp để vay USDT/USDC. Khi đó, người dùng có thể loop (bán USDT/USDC thành USDe, thế chấp USDe để vay USDT/USDC, bán USDT/USDC để mua USDe và lặp lại) để tăng lãi lên nhiều lần (24% - 70%). Trong khi đó USDe không phải là stablecoin đúng nghĩa mà là một token được phát hành neo vào giá 1 USD dựa trên những chiến thuật giao dịch delta-neutral ở dưới. Vì thế khi thị trường bị hoảng vì tin thuế quan từ Trump thì USDe bị mất neo 1 USD và sụt xuống.
+
+Tuy nhiên, mình không đánh giá cao nhận định này, USDe chỉ bị mất neo 1 USD trên CEX như Binance (Bybit cũng mất peg 5%) trong khi trên các giao thức DeFi như Aave (cũng cho loop y hệt trên Binance) và Curve thì USDe không bị mất neo 1 USD (chỉ giao động nhỏ, trích dẫn 1 bên dưới); ngoài ra nhiều alt coin khác không liên quan đến USDe cũng bị mất thanh khoản và giảm sâu. Vấn đề mình nghĩ ở đây là do hệ thống API sàn gặp vấn đề nên các Market Maker (những đơn vị sẽ mua token ở nơi giá thấp và bán ở nơi token giá cao để kiếm lợi nhuận) không thể thực hiện được việc này, dẫn đến giá USDe ở Binance lao dốc không phanh, chung với nhiều token khác (WETH, ATOM, BNSOL, WBETH, v.v...), và làm thanh lý rất nhiều nhà đầu tư.
+
+Mình cũng không đồng tình với việc Binance luôn bẻ lái dư luận về nguyên nhân là do hệ thống của họ. Trong bài báo cáo mà họ đăng về ngày 10 tháng 10 (trích dẫn 2 bên dưới), Binance bằng mọi cách đổ lỗi cho những yếu tố khác chứ không phải là do hệ thống của Binance. Đặc biệt còn cố gắng nêu nguyên nhân làm mọi thứ tệ hơn là do Ethereum lúc đó bị trì trệ:
+
+> A compounding factor in the October 10 flash crash was blockchain congestion on Ethereum which caused gas fees to spike from single digits to over 100 gwei at times and delayed block confirmation, slowing arbitrage and cross-platforms flows.
+
+Binance đổ lỗi là do phí gas trên Ethereum tăng đột biến và tốc độ xác minh block bị chậm. Mình có thể khẳng định là block time không bị chậm. Khi số lượng giao dịch trên Ethereum tăng vọt, phí gas sẽ tăng lên do cung cầu (có nhiều người sẵn sàng trả giá gas cao để được xử lý trước, bạn trả giá thấp thì phải chờ), tốc độ xử lý block vẫn là trong khoảng 12 giây một block. Lỗi ở đây mình nghĩ là do hệ thống API của Binance gặp vấn đề nên chậm ghi nhận số tài sản được nạp vào nên các market maker không thể tiếp tục giao dịch (và cũng giải thích lý do tại sao nhiều alt coin khác cũng sập tương tự); hoặc một lý do khác; chứ mình nghĩ Market Maker sẽ sẵn sàng trả phí gas cao để cân bằng danh mục, và rất nhiều người đã trả phí gas cao để thực hiện việc đó. Một sàn CEX như Binance đều không minh bạch về thiết kế hệ thống, chúng ta chỉ đang nghe câu chuyện họ kể chứ không xác minh được là họ có kể đúng không. Ngoài ra, mình cũng khá tin vào giả thuyết các sàn CEX đều báo cáo sai lệch dữ liệu thanh lý của họ, đặc biệt là Binance; dữ liệu đi ra từ API của sàn (hoàn toàn có thể thay đổi) thay vì có thể kiểm chứng minh bạch onchain. CZ là một người có nhiều tiền sử, hồi xưa cũng bị OKCoin (tiền thân OKX) lên án với 1 bài trên Reddit (trích dẫn 3 ở dưới). Tuy nhiên, đây là cáo buộc lẫn nhau nên cũng khó kiểm chứng, nhưng chúng ta cũng thấy 1 phần lý do Star Xu chỉ trích Binance là do quá khứ xung đột giữa Star Xu và CZ.
+
+Mình nghĩ những nhà đầu tư tài sản số nên yêu cầu các sàn CEX mà họ sử dụng phải minh bạch hơn về phương án vận hành, số liệu và cấu trúc hệ thống, mục đích cuối cùng là bảo vệ tài sản của nhà đầu tư; các builder nên cân nhắc ứng dụng thêm cơ chế vận hành onchain để tạo ra các sản phẩm tốt, tuân thủ pháp luật và đảm bảo tính minh bạch.
+
+------
+[1] https://x.com/hosseeb/status/1977370087800889469?s=46&t=U3BTMI1LgUvDKo6q-PxApw
+[2] https://www.binance.com/en/blog/community/8791765134688155261
+[3] https://www.reddit.com/r/Bitcoin/comments/37u6ca/okcoins_response_to_czs_lies_and_desperate/
