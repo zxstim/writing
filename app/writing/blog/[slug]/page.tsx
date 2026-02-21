@@ -42,7 +42,7 @@ export default async function Page(props: {
         </div>
         <div className="flex flex-row items-center justify-between gap-4">
           <Link
-            href="/"
+            href="/writing"
             className="flex flex-row items-center gap-2 hover:underline hover:underline-offset-4"
           >
             <ChevronLeft className="w-4 h-4" />
