@@ -1,9 +1,8 @@
 import BlogList from "@/components/blog-list";
 
 export default function HomePage() {
-
   return (
-    <div className="flex flex-col gap-2 px-8 md:px-16 lg:px-16 pb-12">
+    <div className="flex flex-col px-4 gap-2 md:px-16 lg:px-16 pb-12">
       <div className="flex flex-col items-center md:items-start lg:items-start justify-center h-[330px]">
         <p className="px-4 py-2 mb-16 text-sm border-2 rounded-full border-secondary">
           Welcome to my writing space!

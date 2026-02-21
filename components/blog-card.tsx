@@ -11,15 +11,22 @@ export default function BlogCard({
     <Link
       key={post.url}
       href={post.url}
-      className="block bg-fd-secondary rounded-none shadow-md overflow-hidden p-6"
+      className="flex flex-col gap-1 rounded-none overflow-hidden p-4 hover:bg-fd-accent"
     >
       <h2 className="text-xl font-semibold mb-2">{post.data.title}</h2>
-      <p className="mb-4 text-sm text-fd-muted-foreground">
-        {post.data.language === "vi" ? "Tiếng Việt" : "English"}
-      </p>
-      <p className="mb-4 text-sm text-fd-muted-foreground">
-        {post.data.date.toLocaleDateString()}
-      </p>
+      <div className="flex flex-row gap-1">
+        <p className="text-sm text-fd-muted-foreground">
+          {post.data.date.toLocaleDateString("en-CA", {
+            year: "numeric",
+            month: "numeric",
+            day: "numeric",
+          })}
+        </p>
+        <p className="text-fd-muted-foreground">·</p>
+        <p className="text-sm text-fd-muted-foreground">
+          {post.data.language === "vi" ? "Tiếng Việt" : "English"}
+        </p>
+      </div>
     </Link>
   );
 }

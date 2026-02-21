@@ -3,7 +3,7 @@ import Link from "next/link";
 import { InlineTOC } from "fumadocs-ui/components/inline-toc";
 import defaultMdxComponents from "fumadocs-ui/mdx";
 import { blog } from "@/lib/source";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, BadgeCheck } from "lucide-react";
 import Image from "next/image";
 import CopyButton from "@/components/copy-button";
 
@@ -17,17 +17,38 @@ export default async function Page(props: {
   return (
     <div className="flex flex-col py-12 gap-4 px-4">
       <div className="flex flex-col gap-8 w-full max-w-[700px] mx-auto ">
-        <div className="flex flex-row gap-4 text-sm">
-          <div className="flex flex-col">
-            <p className="mb-1 text-fd-muted-foreground">Author</p>
-            <p className="font-medium">{page.data.author}</p>
-          </div>
-          <div className="flex flex-col">
-            <p className="mb-1 text-sm text-fd-muted-foreground">At</p>
-            <p className="font-medium">
-              {new Date(page.data.date).toDateString()}
+        <div className="flex flex-row gap-4">
+          <Image
+            src="/zxstim-mini.png"
+            alt="Author"
+            width={55}
+            height={55}
+            className="rounded-full"
+          />
+          <div className="flex flex-col gap-1">
+            <div className="flex flex-row gap-2 items-center">
+              <p className="font-medium">ZxStim</p>
+              {/*<p className="font-sm text-fd-muted-foreground">@zxstim</p>*/}
+              <BadgeCheck className="w-5 h-5 fill-blue-400 stroke-black" />
+            </div>
+            <p className="font-sm text-fd-muted-foreground">
+              {page.data.date.toLocaleDateString("en-CA", {
+                year: "numeric",
+                month: "numeric",
+                day: "numeric",
+              })}
             </p>
           </div>
+        </div>
+        <div className="flex flex-row items-center justify-between gap-4">
+          <Link
+            href="/"
+            className="flex flex-row items-center gap-2 hover:underline hover:underline-offset-4"
+          >
+            <ChevronLeft className="w-4 h-4" />
+            <span>Back</span>
+          </Link>
+          <CopyButton />
         </div>
         <div className="flex flex-col gap-4">
           <Image
@@ -39,16 +60,6 @@ export default async function Page(props: {
             loading="eager"
           />
           <h1 className="mb-2 text-3xl font-bold">{page.data.title}</h1>
-        </div>
-        <div className="flex flex-row items-center justify-between gap-4">
-          <Link
-            href="/writing"
-            className="flex flex-row items-center gap-2 hover:underline hover:underline-offset-4"
-          >
-            <ChevronLeft className="w-4 h-4" />
-            <span>Back</span>
-          </Link>
-          <CopyButton />
         </div>
       </div>
       <article className="w-full max-w-[700px] mx-auto flex flex-col">

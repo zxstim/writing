@@ -17,7 +17,7 @@ export default function BlogList() {
   //     : posts.filter((post) => post.data.language === selectedLanguage);
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
       {/* <div className="flex flex-row gap-4">
         <button
           className={`hover:cursor-pointer ${
@@ -44,9 +44,11 @@ export default function BlogList() {
           Tiếng Việt
         </button>
       </div> */}
-      <div className="flex flex-col gap-4">
-        <h2 className="text-2xl font-bold border-b border-gray-200 pb-2">English</h2>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="flex flex-col">
+        <h2 className="font-bold bg-fd-primary text-fd-secondary px-2 w-fit rounded-none">
+          English
+        </h2>
+        <div className="grid grid-cols-1 border-2 border-fd-muted-foreground divide-y-2 divide-fd-muted-foreground">
           {enPosts
             .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
             .map((post) => (
@@ -54,9 +56,11 @@ export default function BlogList() {
             ))}
         </div>
       </div>
-      <div className="flex flex-col gap-4">
-        <h2 className="text-2xl font-bold border-b border-gray-200 pb-2">Tiếng Việt</h2>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="flex flex-col">
+        <h2 className="font-bold bg-fd-primary text-fd-secondary px-2 w-fit rounded-none">
+          Tiếng Việt
+        </h2>
+        <div className="grid grid-cols-1 border-2 border-fd-muted-foreground divide-y-2 divide-fd-muted-foreground">
           {viPosts
             .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
             .map((post) => (
