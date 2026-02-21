@@ -26,10 +26,10 @@ export default async function Page(props: {
             className="rounded-full"
           />
           <div className="flex flex-col gap-1">
-            <div className="flex flex-row gap-2 items-center">
+            <div className="flex flex-row gap-1 items-center">
               <p className="font-medium">ZxStim</p>
               {/*<p className="font-sm text-fd-muted-foreground">@zxstim</p>*/}
-              <BadgeCheck className="w-5 h-5 fill-blue-400 stroke-black" />
+              <BadgeCheck className="w-5 h-5 fill-blue-400 stroke-fd-secondary" />
             </div>
             <p className="font-sm text-fd-muted-foreground">
               {page.data.date.toLocaleDateString("en-CA", {
@@ -50,7 +50,7 @@ export default async function Page(props: {
           </Link>
           <CopyButton />
         </div>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-6">
           <Image
             src={`/blog-images/thumbnails/${page.data.thumbnail}`}
             alt={page.data.title}
