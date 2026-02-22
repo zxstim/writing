@@ -17,7 +17,7 @@ export default async function Page(props: {
   const Mdx = page.data.body;
   return (
     <div className="flex flex-col py-12 gap-4 px-4">
-      <div className="flex flex-col gap-8 w-full max-w-[700px] mx-auto ">
+      <div className="flex flex-col gap-8 w-full max-w-175 mx-auto">
         <div className="flex flex-row gap-4">
           <Image
             src="/zxstim-mini.png"
@@ -63,7 +63,7 @@ export default async function Page(props: {
           <h1 className="mb-2 text-3xl font-bold">{page.data.title}</h1>
         </div>
       </div>
-      <article className="w-full max-w-[700px] mx-auto flex flex-col">
+      <article className="w-full max-w-175 mx-auto flex flex-col">
         <div className="prose min-w-0">
           <InlineTOC items={page.data.toc} />
           <Mdx components={getMDXComponents()} />
@@ -84,7 +84,10 @@ export function generateStaticParams(): { slug: string }[] {
 
 export async function generateMetadata(props: {
   params: Promise<{ slug: string }>;
-}) {
+}): Promise<{
+  title: string;
+  description: string | undefined;
+}> {
   const params = await props.params;
   const page = blog.getPage([params.slug]);
   if (!page) notFound();

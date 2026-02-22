@@ -1,12 +1,11 @@
 import Link from "next/link";
 import { blog } from "@/lib/source";
 
-
 export default function Home() {
   const posts = blog.getPages();
-  
+
   return (
-    <main className="flex-1 w-full max-w-[1400px] mx-auto px-4 py-8">
+    <main className="flex-1 w-full max-w-350 mx-auto px-4 py-8">
       <h1 className="text-4xl font-bold mb-8">Latest Blog Posts</h1>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
