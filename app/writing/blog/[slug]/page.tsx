@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { InlineTOC } from "fumadocs-ui/components/inline-toc";
 import defaultMdxComponents from "fumadocs-ui/mdx";
+import { getMDXComponents } from "@/mdx-components";
 import { blog } from "@/lib/source";
 import { ChevronLeft, BadgeCheck } from "lucide-react";
 import Image from "next/image";
@@ -65,7 +66,7 @@ export default async function Page(props: {
       <article className="w-full max-w-[700px] mx-auto flex flex-col">
         <div className="prose min-w-0">
           <InlineTOC items={page.data.toc} />
-          <Mdx components={defaultMdxComponents} />
+          <Mdx components={getMDXComponents()} />
         </div>
       </article>
     </div>
