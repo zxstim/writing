@@ -5,11 +5,7 @@ const withMDX = createMDX();
 /** @type {import('next').NextConfig} */
 const config = {
   reactStrictMode: true,
-  assetPrefix: '/writing',
-  images: {
-    // path prefix for Image Optimization API
-    path: '/writing/_next/image',
-  },
+  basePath: '/writing',
 };
 
 export default withMDX(config);

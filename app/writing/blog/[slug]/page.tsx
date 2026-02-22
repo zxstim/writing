@@ -86,7 +86,6 @@ export async function generateMetadata(props: {
 }): Promise<{
   title: string;
   description: string | undefined;
-  thumbnail: string;
 }> {
   const params = await props.params;
   const page = blog.getPage([params.slug]);
@@ -94,6 +93,5 @@ export async function generateMetadata(props: {
   return {
     title: page.data.title,
     description: page.data.description,
-    thumbnail: `/blog-images/thumbnails/${page.data.thumbnail}`,
   };
 }
