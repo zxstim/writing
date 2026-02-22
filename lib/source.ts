@@ -6,13 +6,13 @@ import { blogPosts } from "fumadocs-mdx:collections/server";
 
 // See https://fumadocs.dev/docs/headless/source-api for more info
 export const source = loader({
-  baseUrl: "/writing/docs",
+  baseUrl: "/docs",
   source: docs.toFumadocsSource(),
   plugins: [lucideIconsPlugin()],
 });
 
 export const blog = loader({
-  baseUrl: "/writing/blog",
+  baseUrl: "/blog",
   source: toFumadocsSource(blogPosts, []),
 });
 
@@ -21,7 +21,7 @@ export function getPageImage(page: InferPageType<typeof source>) {
 
   return {
     segments,
-    url: `/writing/og/docs/${segments.join("/")}`,
+    url: `/og/docs/${segments.join("/")}`,
   };
 }
 
