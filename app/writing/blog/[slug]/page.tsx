@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { InlineTOC } from "fumadocs-ui/components/inline-toc";
-import defaultMdxComponents from "fumadocs-ui/mdx";
 import { getMDXComponents } from "@/mdx-components";
 import { blog } from "@/lib/source";
 import { ChevronLeft, BadgeCheck } from "lucide-react";
@@ -87,6 +86,7 @@ export async function generateMetadata(props: {
 }): Promise<{
   title: string;
   description: string | undefined;
+  thumbnail: string;
 }> {
   const params = await props.params;
   const page = blog.getPage([params.slug]);
@@ -94,5 +94,6 @@ export async function generateMetadata(props: {
   return {
     title: page.data.title,
     description: page.data.description,
+    thumbnail: `/blog-images/thumbnails/${page.data.thumbnail}`,
   };
 }
