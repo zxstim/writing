@@ -1,4 +1,4 @@
-import BlogList from "@/components/blog-list";
+import DraftBlogList from "@/components/draft-blog-list";
 
 export default function HomePage() {
   return (
@@ -16,7 +16,7 @@ export default function HomePage() {
    ╚═╝   ╚═╝  ╚═╝ ╚═════╝  ╚═════╝  ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚══════╝`}
         </pre>
       </div>
-      <BlogList />
+      <DraftBlogList />
     </div>
   );
 }

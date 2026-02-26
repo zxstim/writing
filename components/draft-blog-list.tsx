@@ -1,15 +1,13 @@
 "use client";
 
 import { blog } from "@/lib/source";
-import BlogCard from "@/components/blog-card";
+import DraftBlogCard from "@/components/draft-blog-card";
 
-export default function BlogList() {
+export default function DraftBlogList() {
   const posts = blog.getPages();
-  const publishedPosts = posts.filter(
-    (post) => post.data.status === "published",
-  );
-  const viPosts = publishedPosts.filter((post) => post.data.language === "vi");
-  const enPosts = publishedPosts.filter((post) => post.data.language === "en");
+  const draftPosts = posts.filter((post) => post.data.status === "draft");
+  const viPosts = draftPosts.filter((post) => post.data.language === "vi");
+  const enPosts = draftPosts.filter((post) => post.data.language === "en");
 
   return (
     <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
@@ -21,7 +19,7 @@ export default function BlogList() {
           {enPosts
             .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
             .map((post) => (
-              <BlogCard key={post.url} post={post} />
+              <DraftBlogCard key={post.url} post={post} />
             ))}
         </div>
       </div>
@@ -33,7 +31,7 @@ export default function BlogList() {
           {viPosts
             .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
             .map((post) => (
-              <BlogCard key={post.url} post={post} />
+              <DraftBlogCard key={post.url} post={post} />
             ))}
         </div>
       </div>
