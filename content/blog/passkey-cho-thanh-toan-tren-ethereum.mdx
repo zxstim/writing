@@ -1,0 +1,21 @@
+---
+title: Passkey Cho Thanh Toán Trên Ethereum
+author: zxstim
+date: 2026-03-24
+language: vi
+thumbnail: passkey-cho-thanh-toan-tren-ethereum.png
+status: published
+---
+
+Cách đây khoảng hơn 1 năm thì tớ có viết một cái thư viện tận dụng WebAuthn làm nơi chứa seed phrase để có thể dùng ký các loại giao dịch trên Ethereum. Đợt đó tớ bí ý tưởng nên viết 1 cái ví tích hợp cái thư viện xong thì bỏ xó; cũng có giới thiệu tới một vài team khác thích ý tưởng để xài thử; tớ cũng không phát hành trên npm vì tớ nghĩ thư viện bé thì tốt nhất copy code vào luôn cho an toàn, né supply chain attack từ npm.
+
+Đến gần đây thì Tempo ra mắt ví riêng cho mạng lưới, đặt WebAuthn/Passkey làm trọng tâm. Tớ thấy anh em builder trong cộng đồng Ethereum nhìn gato quá do Tempo căn bản không có những món nợ theo thời gian của Ethereum, không có nhiều user hiện tại để lo nếu hard fork thì mất tiền. Vì thế tớ quyết định sẽ hồi sinh lại ý tưởng ví thanh toán cũ kia để chứng minh Ethereum cũng không kém cạnh.
+
+Tớ không đồng tình việc là mỗi người chỉ nên có 1 ví dùng chung cho tất cả mục đích. Tớ quan niệm là mỗi người nên có nhiều ví cho nhiều mục đích khác nhau, hiểu những đánh đổi giữa trải nghiệm và mức độ an toàn để có thể chọn lựa đúng đắn. Phương châm của tớ thì dựa vào giá trị tài sản. Với số tài sản nhỏ (ví dụ như $100) thì bạn có thể thoải mái tối ưu trải nghiệm, vì nếu có sự cố thì số tài sản mất cũng nhỏ (ví dụ mất $100). Với số tài sản lớn hơn (ví dụ như $100,000) thì bạn nên tập trung vào mức độ an toàn như sử dụng ví hardware, có quy trình kiểm tra trước khi ký bất kỳ một giao dịch gì.
+
+Giờ nói sâu về những quyết định thiết kế của cái ví này so với ví cũ nhé:
+- Ví dùng để thanh toán thì bạn không nên bao giờ cho nhiều tài sản vào. Dùng đến đâu cho vào đến đó. Tài sản thì nên chứa trong ví hardware ngoài, tách biệt khỏi môi trường tạp nham như laptop. Lý do là tớ sẽ dùng đủ mọi cách để tối ưu trải nghiệm thanh toán (cùng với việc điều chỉnh mức độ bảo mật tương đương) chứ không phải bất kỳ những trải nghiệm khác; vì thế mà ví sẽ cực kỳ tối giản, phục vụ phần lớn là xem số dư và ký giao dịch.
+- Trước tớ nhét thẳng seed phrase vào trong WebAuthn. Seed phrase lúc đó ở đằng sau biometric của thiết bị. Bạn phải quét mặt/mắt/vân tay thì mới truy cập được. Bây giờ thì tớ ứng dụng keystore để đảm bảo hơn. Seed phrase không lưu trữ dưới dạng plain text (chỉ trong lúc giải mã để ký). Trong WebAuthn tớ chứa một chuỗi ký tự ngẫu nhiên dùng để mã hoá seed phrase thành keystore v3 (tiêu chuẩn chung của ngành hiện tại). Keystore được lưu ở localStorage và có thể xuất ra bất kỳ lúc nào. Cái này sẽ giúp bạn lưu chuyển ví dễ dàng giữa các thiết bị, không như nhiều ví passkey hiện tại.
+- Về mặt bảo mật thì nó chung nhiều vấn đề với các loại ví nóng khác. Môi trường ký là trong browser (tuy bạn không gõ password), nhưng malware vẫn có thể moi được seed phrase lúc bạn ký phải giải mã. Tuy nhiên, tớ nghĩ nếu bạn dùng trên môi trường thiết bị điện thoại thay vì laptop thì sẽ bớt đi nhiều vấn đề; chung với việc chứa ít tài sản thôi, dùng để thanh toán nhỏ hoặc ngay lập tức (ví không bao giờ chứa nhiều). Tớ cũng sẽ viết thêm một phiên bản mobile trên app store sắp tới nhé nhưng tạm thời chỉ web để tớ thử nghiệm nhanh.
+
+Chung quy lại là vẫn còn nhiều cái tớ phải trau chuốt thêm nhưng căn bản cốt lõi thiết kế như vậy. Vẫn còn nhiều cái tớ sẽ trau chuốt thêm và phát triển phần của merchant (đây mới là cái quan trọng). Tớ cũng sẽ tăng cường những phương án bảo vệ để kiên cố hơn như viết lại một số thư viện (hạn chế supply chain attack), tạo một cache layer mà bạn phải nhấn nút thủ công mới cập nhật được cái ví trong browser (tránh hijack CD attack), chung với CI/CD biệt lập. Mã nguồn ví cũng mở và license là AGPL-3.0.
