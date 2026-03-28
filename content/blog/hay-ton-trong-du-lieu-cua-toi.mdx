@@ -1,0 +1,31 @@
+---
+title: Hãy Tôn Trọng Dữ Liệu Của Tôi
+author: zxstim
+date: 2026-03-28
+language: vi
+thumbnail: hay-ton-trong-du-lieu-cua-toi.png
+status: published
+---
+
+Trong bài viết gần đây tớ có đề cập về ICO. Nên giờ tớ sẽ viết nối tiếp một bài về một ứng dụng công nghệ Zero Knowledge trong xác minh danh tính cực hay trong ICO của Aztec Network, Layer 2 trên Ethereum.
+
+Anh em làm trong ngành tài sản mã hoá chắc cũng nhiều lần đau đầu với câu chuyện bot, từ việc bot spam nhóm cộng đồng, giả mạo người dùng để hưởng ưu đãi, đến việc bot tấn công sản phẩm. Từ chuyên môn hay dùng là "sybil attack". Càng thiết thực hơn trong thời đại AI; bot một thời chỉ là những script automation lập trình sẵn thì giờ đây còn nhiều khả năng thiên biến vạn hoá, khó để phân biệt hơn rất nhiều.
+
+Một phương án mà anh em công nghệ thấy phổ biến là kiểm tra danh tính (hay gọi là KYC - Know Your Customer). Mọi người chắc đã trải nghiệm qua là khi đăng ký tài khoản ngân hàng online, bạn chụp hình CCCD (hoặc Passport), sau đó quét thêm khuôn mặt (có thể phải thực hiện một số động tác), sau khi hệ thống xác minh thì bạn sẽ được bắt đầu sử dụng. Những hệ thống dạng này họ thường hoạt động như sau:
+1. Hình chụp sẽ gửi về server và dùng OCR để trích xuất dữ liệu trên CCCD/Passport
+2. Sau đó khi bạn quét khuôn mặt thì họ lưu một video gửi về server
+3. Hệ thống của đơn vị xác minh danh tính sẽ dùng các thuật toán để có thể phỏng đoán có phải bạn là người trong CCCD/passport hay không. Thường sẽ có những quy luật được thiết lập sẵn, hệ thống có thể trả kết quả dạng điểm số (ví dụ 6/10) hoặc là Pass/Fail.
+4. Dựa vào kết quả thì hệ thống bạn sẽ quyết định là có cung cấp dịch vụ khách hàng hay không.
+Nhược điểm của dạng hệ thống này nằm ở việc thu thập dữ liệu hình chụp CCCD và video khuôn mặt của bạn. Nếu lưu trữ không cẩn thận thì khi hệ thống bị hacker tấn công sẽ làm dữ liệu người dùng bị phát tán, mua bán vô tội vạ. Trên thực tế, chúng ta đã thấy ngay cả các công ty cung cấp dịch vụ xác minh danh tính cũng bị tấn công và lộ dữ liệu. Một cái tên mà anh em thấy thường xuyên trong ngành tài sản mã hoá là Sumsub, thì họ cũng bị hacker truy cập thầm lặng vào hệ thống mà không phát hiện ra trong suốt 18 tháng, gây lộ dữ liệu của một phần khách hàng (trích dẫn 1). Hay công ty IDMerit bị lộ 1 tỷ bản ghi của công dân 26 nước (trích dẫn 2). Tớ hiểu nhu cầu phải xác minh danh tính, nhưng các công ty công nghệ hiện tại không làm tròn nghĩa vụ, khi xảy ra sự cố thì chỉ cười trừ huề vốn, ông này đổ lỗi cho ông kia, không có động thái bồi thường hay ăn năn xin lỗi khách hàng. Sự thiếu tôn trọng dữ liệu cá nhân này đáng bị lên án và chịu trách nhiệm trước pháp luật.
+
+Tớ tình cờ biết được về zk-passport (khác ZKPassport mà tí tớ sẽ đề cập) vào tháng 10, 2024, trước thềm Devcon Thái Lan. Một bạn contributor lúc đó đang du lịch Việt Nam và tớ tình cờ bắt chuyện trong quán cà phê Quận 1. Về sau team zk-passport này không thể tiếp tục do vấn đề nguồn vốn; nhưng có một đội ngũ khác tiếp tục phát triển hướng này để ra mắt ZKPassport (tên dễ gây nhầm lẫn). Và cái tên này đã gây tiếng vang khi trở thành một đơn vị chủ lực cung cấp giải pháp xác minh danh tính cho ICO của Aztec Network (gọi được hơn 60 triệu đô). Giải pháp của họ tớ nghĩ rất hay. Bạn có thể đọc thêm ở trích dẫn 3 bên dưới. Tóm tắt thì trong một số loại giấy tờ danh tính của bạn có một con chip. Con chip này chứa những thông tin cá nhân của bạn mà đã được chính phủ phát hành ký với một cái private key của họ. Vì thế bạn có thể dùng thuật toán mã hoá để chứng minh thông tin. Ứng dụng ZKPassport sẽ tạo ra một Cryptographic Proof (ZKP) trong thiết bị (như điện thoại), sau đó bạn có thể gửi cái Cryptographic Proof tới cho đơn vị cần xác minh để chứng minh một số thông tin của bạn như là bạn trên 18 tuổi, bạn là công dân của nước nào, v.v... mà không cần phải gửi hình chụp passport tới cho họ. Còn trong ICO của Aztec thì họ gửi cái Cryptographic Proof này vào mint function trong ICO contract để nhận một cái soul bound token (trích dẫn 4 và 5 cho các bạn hiểu solidity) để tham gia.
+
+Nếu bạn đang xây dựng một sản phẩm mà cần phải xác minh danh tính, tớ mong bạn nên cân nhắc sử dụng giải pháp của ZKPassport để bảo vệ danh tính của người dùng, nếu hợp pháp (ZKPassport chưa hỗ trợ Passport Việt Nam). Tuy nhiên, theo mình được biết thì sẽ có dự thảo mới về "Quy định xử phạt vi phạm hành chính trong lĩnh vực an ninh mạng và bảo vệ dữ liệu cá nhân" (trích dẫn 6). Mong các công ty công nghệ hãy tôn trọng dữ liệu của khách hàng, phải lên kế hoạch kỹ và có những sáng tạo đột phá để bảo vệ dữ liệu cũng như niềm tin của chúng tôi.
+
+------
+[1] [Hệ thống Sumsub bị truy cập trái phép suốt 18 tháng](https://fincrimecentral.com/sumsub-incident-cloud-aml-risk-management/)  
+[2] [IDMerit bị lộ 1 tỷ bản ghi](https://www.zyphe.com/news/idmerit-data-leak)  
+[3] [How to Enable Age Verification on the Internet Today Using Zero-Knowledge Proofs](https://aztec.network/blog/how-to-enable-age-verification-on-the-internet-today-using-zero-knowledge-proofs)  
+[4] [IgnitionParticipantSoulbound.sol](https://github.com/AztecProtocol/ignition-contracts/blob/master/src/soulbound/IgnitionParticipantSoulbound.sol)  
+[5] [ZKPassportProvider.sol](https://github.com/AztecProtocol/ignition-contracts/blob/master/src/soulbound/providers/ZKPassportProvider.sol)  
+[6] [Doanh nghiệp chịu mức phạt "khủng" khi làm lộ dữ liệu hàng triệu người?](https://luatvietnam.vn/linh-vuc-khac/doanh-nghiep-chiu-muc-phat-khung-khi-lam-lo-du-lieu-hang-trieu-nguoi-du-thao-moi-883-107893-article.html)
