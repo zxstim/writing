@@ -1,0 +1,20 @@
+---
+title: Suy Nghĩ Về Kết Nối Giữa App Và Wallet
+author: zxstim
+date: 2026-03-31
+language: vi
+thumbnail: suy-nghi-ve-ket-noi-giua-app-va-wallet.png
+status: published
+---
+
+Tớ cực kỳ ghét WalletConnect, hiện nay là giải pháp duy nhất để liên kết App và Wallet giữa các thiết bị với nhau. WalletConnect vừa không open source, nên không thể tin tưởng được là cái server họ có đảm bảo là dữ liệu yêu cầu ký được bảo đảm hay không (có đợt còn chặn IP nữa); rồi SDK thì quá lởm, cài vào là cứ báo warning rồi lỗi đủ kiểu, với dùng websocket nên chất lượng kết nối mobile rất kém; mấy lúc thị trường xáo động tí là server quá tải và không thấy yêu cầu trên ví để ký luôn; đợt này còn bắt đầu tính phí rồi, trong khi chất lượng sản phẩm cùi.
+
+Tớ thấy không hợp lý lắm ở chỗ cái dữ liệu giao dịch để yêu cầu ví ký ấy thì nó không thuộc dạng tối mật; và đặc biệt là lúc tương tác thì chúng ta đã có các thiết bị ngay trước mặt rồi, tại sao phải lôi 1 cái server chả liên quan ở đây để mấy thiết bị này giao tiếp.
+
+Vì thế gần đây mình có thử nghiệm viết lại một cái thư viện connect ví mới, hỗ trợ các loại ví extension theo EIP-6963 và cho phép bạn có thể copy một cái ví bất kỳ vào (dạng chế độ impersonator - mạo danh). Sau đó, bạn thoải mái thao tác như kết nối ví; lúc hoàn thành thì bạn có thể bấm nút để tạo ra dữ liệu của giao dịch, copy cái dữ liệu giao dịch này qua một bên ví bất kỳ (copy và paste, tự gửi tin nhắn, bluetooth, QR, v.v...) cho phép bạn ký giao dịch raw. Cái ví ấy sẽ có trách nhiệm là xử lý cái dữ liệu ấy cho bạn dễ hiểu, giúp bạn khớp và xác nhận là cái bạn ký đúng là cái bạn muốn (tránh các trường hợp frontend bị hijack như vụ hack của Bybit), sau đó ký giao dịch và gửi tới node (hoặc trả về app để gửi nếu là ví airgapped không có kết nối internet).
+
+Đợt này cũng đang có nhiều cuộc thảo luận về clear signing (EIP7730 và ERC8213). Nếu bạn nào hứng thú thì tớ đăng đường dẫn tới forum ở dưới để các bạn theo dõi nhé.
+
+---------
+1. [ERC-8213: Wallet Signature and Calldata Digest Display](https://ethereum-magicians.org/t/erc-8213-wallet-signature-and-calldata-digest-display/24295)
+2. [EIP-7730: Proposal for a clear signing standard format for wallets](https://ethereum-magicians.org/t/eip-7730-proposal-for-a-clear-signing-standard-format-for-wallets/20403)
