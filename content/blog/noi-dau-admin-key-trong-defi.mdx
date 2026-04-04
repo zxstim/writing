@@ -1,0 +1,27 @@
+---
+title: Nỗi Đau Admin Key Trong DeFi
+author: zxstim
+date: 2026-04-02
+language: vi
+thumbnail: noi-dau-admin-key-trong-defi.png
+status: published
+---
+
+Gần đây Drift protocol, một giao thức giao dịch hợp đồng vĩnh cửu (perpetual futures) bị tấn công và gây thiệt hại $280 triệu đô. Hacker cũng rất thâm là tấn công vào ngày Cá Tháng Tư (1/4) để gây nhiễu loạn thông tin do mọi người nghĩ là trò đùa; sự việc xảy ra hơn 1 tiếng đồng hồ mới có một số đơn vị phát hiện ra.
+
+Tớ chờ thông tin được xác nhận hoàn thì mới đăng bài bình luận này. Đúng thật là vụ việc xảy ra do private key của đội ngũ bị lộ. Hacker có nhiều dấu hiệu liên quan đến Bắc Hàn (trích dẫn 1), và tuyệt chiêu âm thầm chiếm đoạt private key cũng là một cực phẩm của bên đó. Tuy nhiên, mình muốn bình luận sâu thêm về cách đội ngũ Drift thiết lập multisig.
+
+Multisig của Drift được thiết lập 2/5, tức là cần 2 trên 5 người ký để có thể thực thi hành động. Đáng buồn là những tài khoản multisig này có thể thực hiện những hành động cực kỳ quyền lực nhưng multisig không được thiết lập có timelock (tức là tính năng phải chờ bao lâu thì hành động mới có hiệu lực). Thêm nữa, khi Drift thực hiện việc kiểm tra an ninh của giao thức thì phạm vi kiểm tra không bao gồm việc thiết lập multisig. Multisig quản trị này của Drift Protocol nắm giữ các quyền sau đây:
+- Tạo cặp giao dịch
+- Chỉ định oracle
+- Điều chỉnh các hạn mức rút tài sản
+
+Hacker tận dụng các quyền quản trị ở trên để tạo ra token CVT (không có giá trị), nhưng lại thiết lập cặp giao dịch dựa vào oracle mà hacker nắm giữ, định giá số token CVT cực kỳ cao, và điều chỉnh hạn mức rút cho các quỹ chứa token blue chip USDC, wETH, dSOL, JLP, cbBTC (để có thể rút sạch mà không bị cản). Nhờ đó, hacker đã thực hiện thành công phi vụ chính chỉ trong 10 giây (đọc thêm tại trích dẫn 2). Sau đó còn tiếp tục tấn công và rút thêm nữa vì đội ngũ trở tay không kịp.
+
+Tớ không thích admin key nhưng tớ hiểu lý do tại sao nó tồn tại. Tuy nhiên khi một giao thức có sử dụng admin key mà admin key lại quá quyền lực, có thể gây thiệt hại lớn như vầy, mà lại không có những quy trình bảo vệ tương ứng thì đội ngũ của giao thức thật đáng trách. Chris Heany là Lead Developer và Co-founder (đã tự hạn chế tài khoản X) của Drift Protocol, tuy có lịch sử làm việc cho Amazon xịn xò nhưng đã không có nhận thức đúng đắn về bảo vệ an ninh và quản trị rủi ro. Ngành tài sản mã hoá nên bớt sính các thể loại nhân sự thương hiệu Big Tech như Amazon, Meta, Netflix các kiểu, mà hãy thực sự nhìn vào chất lượng của sản phẩm. Một giao thức như Drift Protocol, mã nguồn không được xác minh, không ai biết giao thức hoạt động thế nào, có một multisig nắm quyền quản trị tuyệt đối, thì không thể gọi là DeFi được, mà là CeFi trá hình. Như Hayden Adams, Founder của Uniswap, đã viết (trích dẫn 4), chúng ta phải dừng việc đánh đồng những giao thức DeFi thực thụ so với CeFi trá hình, vì nó gây ảnh hưởng xấu đến ngành, không thể so sánh cục đá với quả trứng. Mỗi một vụ hack như của Drift Protocol đều là một vết nhơ của cả ngành tài sản mã hoá vì chúng ta đã không ngăn chặn nó sớm hơn để bảo vệ người dùng. Hiện tại cộng đồng đang bàn tán nhiều về những phương án phòng chống trong thời gian tới và tớ sẽ cố gắng đóng góp hết mức có thể trong việc phổ cập những thông tin này tới cho mọi người.
+
+--------
+- [1] [Kẻ tấn công Drift Protocol dính đến DPRK](https://x.com/zachxbt/status/2040055788669165755?s=20)
+- [2] [Quy trình tấn công Drift Protocol](https://x.com/omeragoldberg/status/2039455314089746747?s=20)
+- [3] [Tài khoản X đã tự hạn chế của Chris Heany](https://x.com/crispheaney)
+- [4] [Chỉ trích của Hayden Adams](https://x.com/haydenzadams/status/2039560830862164329)
