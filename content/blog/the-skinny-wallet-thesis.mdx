@@ -1,0 +1,21 @@
+---
+title: The Skinny Wallet Thesis
+author: zxstim
+date: 2026-04-08
+language: en
+thumbnail: the-skinny-wallet-thesis.png
+status: published
+---
+
+So months ago, the term "skinny wallet thesis" was coined by [@cinesiusss](https://x.com/cinesiusss) coming out from a discussion with me on the idea that wallet should be minimal and focus on protecting user assets rather than getting bloated with features (since features can be offloaded to an accompanying app). I want to elaborate more on this idea going forward as UnitMetal Wallet is taking shape.
+
+To start out, I want to explain the thesis first for context. So at the moment of writing, most major wallets like MetaMask, Rainbow, Base App, Trust Wallet, etc. are all very "complex" wallets. "Complex" here means these wallets are packed with features, tons of dependencies, you get swap, perp, points, all the fancy spansy built into the wallet. That is why there is a feeling of bloat for many users. Wallets take advantage of their position to a built in experience for their users when interact onchain. Nothing wrong with that but I think the point of wallet is focusing on protecting crypto assets. The more complexity the wallet, the more things could go wrong. We have seen recently Trust Wallet getting supply chain'ed attack leading to user losses. In my opinion, wallet should be minimal, or in another word, skinny.
+
+Another angle to look at this discussion is that we need to move competition up to the app layer rather than the wallet layer. When there is fierce competition in the wallet layer, with the present of VC money, there will be dark patterns emerging to "lock in" users, or for data mining (aka. surveilance). I think wallet is a right for everyone, it's the entry point into the Ethereum ecosystem, and it serves the most fundamental purposes which are safekeeping and sending onchain assets. However, competition in the app layer makes sense. App is about use cases beyond the fundamental purposes above. So the incentives and context align well.
+
+For the above, I set out to build my line of UnitMetal Wallet which will abide the following principles:
+- No tracking, no analytics in the wallet, plus additional privacy features like VPN/tor connectivity. I don't know who is using the wallet, how they are using it, what they are using it for.
+- Minimal features (least amount of dependencies), local first, clear signing, leverage as much as possible purely Ethereum RPC rather than proprietary APIs.
+- Prioritize access to everyone, have the wallet available on all devices, operating systems, even dedicated hardware. It's quite manageable to maintain different versions when the wallet is very simple.
+
+Everything else, I would offload into UnitMetal main application. The separation can ensure that the wallet can properly perform its duties of safeguarding. There will need to be more improvements on wallet to app connectivity infrastructure to make the user experience better; and I'm working on it at the moment. If you like the idea, feel free to reach out to discuss more.
