@@ -1,0 +1,22 @@
+---
+title: Tin Vào Code Thay Vì Con Người
+author: zxstim
+date: 2026-04-15
+language: vi
+thumbnail: tin-vao-code-thay-vi-con-nguoi.png
+status: published
+---
+
+Có vụ Justin Sun tố đội ngũ World Liberty Fi về việc đội ngũ đã thay đổi cấu trúc của token để cho thêm vào khả năng khoá tài sản của người cầm token. Nạn nhân lớn nhất là Justin Sun khi bị khoá năm ngoái sau khi có tin đồn là Justin Sun sử dụng sàn HTX của bản thân để xả lén số token đó. Thực hư thế nào thì chưa chứng minh được vì hoạt động của sàn HTX rất là mập mờ nhưng hồi trước Justin Sun cũng đã có tiền sử thao túng Poloniex (trích dẫn 1).
+
+Tớ có đọc bài viết của @banteg (trích dẫn 2), một nhân vật có tiếng trong Crypto Twitter (CT), điều tra lịch sử của token onchain. Token WLFI ban đầu không có chức năng khoá, tuy nhiên vì token này được thiết kế là có thể nâng cấp được, nên đội ngũ WLFI đã triển khai phiên bản v2 với một loạt các khả năng khoá, tịch thu. Smart contract vesting có đầy đủ các tính năng để quản trị vesting (trích dẫn 3), nhưng đội ngũ WLFI lại không sử dụng, họ lại tạo ra thêm một danh mục số 3 cho mỗi một mình Justin Sun, và mở khoá 20% số token cho Justin Sun đúng vào thời điểm token WLFI được giao dịch (không có bất kỳ hạn chế nào). Sau khi nhận token, Justin Sun chờ 3 ngày mới chuyển 9.2% số token nhận được thì đội ngũ WLFI đã khoá toàn bộ số token còn lại trong ví. Có vẻ như có một "hợp đồng khác" ở thế giới thực thay vì chỉ ở trong code onchain, nên khi Justin Sun chuyển token đã vi phạm hợp đồng. Thực hư thì chúng ta người ngoài cuộc nên chưa có thể xác minh. Nhưng tớ muốn chỉ ra cái dở hơi của cả 2 phía. WLFI có khả năng ràng buộc Justin Sun dựa vào vesting contract nhưng lại lựa chọn một cuộc dàn xếp bên ngoài, để Justin Sun có khả năng chuyển token. Justin Sun với vị thế là nhà đầu tư lớn nhất đã không ràng buộc đội ngũ phải sử dụng smart contract không thể nâng cấp, hoặc có những quyền lợi nhất định ràng buộc vào trong code onchain.
+
+Smart contract onchain cho phép chúng ta định nghĩa các nguyên tắc hoạt động trong mối quan hệ ở đây. Kết hợp với tính bất biến của blockchain, smart contract tạo điều kiện cho con người phối hợp trao đổi giá trị mà không cần một bên thứ ba đứng giữa trọng tài, giảm thiểu hoàn toàn rủi ro "đối tác". Tớ không thích các dạng contract có thể nâng cấp được, tớ nghĩ đó là "sai lầm" hơn là "sáng tạo" mà ngành tài sản mã hoá đã nghĩ ra. Nếu trong thời gian làm việc, chúng ta cần phải thay đổi smart contract thì có thể tạo ra một phiên bản khác để các bên dịch chuyển qua. Ví dụ như Uniswap V1, V2, V3 và V4 đều cùng tồn tại trên Ethereum từ xưa đến giờ. Uniswap không cần phải "nâng cấp" giao thức mà chỉ triển khai một phiên bản mới. Như thế mới đảm bảo được cái "quyền" của tất cả mọi người. Những anh em nào hay đầu tư vào dự án blockchain thì nên suy nghĩ kỹ trước khi bước vào, mọi điều khoản nên được tích hợp vào smart contract để đảm bảo quyền của mọi người chứ không nên tin vào lời nói của đội ngũ dự án. Hãy luôn nhớ câu nói thân thuộc là "Don't trust, verify".
+
+Tớ cũng chả ưa Justin Sun, mong các anh em builder nghĩ kế hút sạch sẽ thanh khoản trên Tron về Ethereum cho thế giới được yên ổn. Tài sản tồn tại trên cái chain lọ đó chỉ chờ ngày bị mất thôi. Chúng ta chưa biết số phận của Justin Sun sẽ thế nào, nhưng khi Tron có độ tập trung hoá kinh khủng trong tay của một người thì sẽ bị ảnh hưởng lây nếu Justin Sun bị "tác động" như Chen Zhi (trích dẫn 4).
+
+-----
+- [1] [Quá khứ Justin Sun và Poloniex](https://www.theverge.com/c/22947663/justin-sun-tron-cryptocurrency-poloniex)
+- [2] [Điều tra onchain của banteg](https://x.com/banteg/status/2043416269073068485?s=46&t=U3BTMI1LgUvDKo6q-PxApw)
+- [3] [Bình luận về WLFI contract](https://gist.github.com/banteg/8ca7c132624d4bab34608445bf383e32#file-wlfi-sun-vesting-analysis-md)
+- [4] [Điều tra của Bloomberg về Justin Sun](https://www.bloomberg.com/news/features/2025-09-26/crypto-billionaire-justin-sun-went-from-pariah-to-trump-moneyman)
