@@ -1,0 +1,22 @@
+---
+title: Đừng Suy Nghĩ Ngây Thơ Với Cầu Nối Blockchain
+author: zxstim
+date: 2026-05-05
+language: vi
+thumbnail: dung-suy-nghi-ngay-tho-voi-cau-noi-blockchain.png
+status: published
+---
+
+Sau vụ hack KelpDAO và LayerZero Labs thì tớ vẫn theo sát diễn biến. Aave LLC đã đệ đơn lên toà án Southern District of New York (SDNY) để yêu cầu bác bỏ vụ kiện của Gerstein Harrow LLP dựa trên nguyên tắc là những tài sản mã hoá giải cứu kia không thuộc về Bắc Hàn. Đây là tin tốt vì khả năng rất cao là Aave LLC sẽ thắng kiện vì căn bản vụ kiện kia cũng không có nhiều căn bản pháp lý lắm. Tuy nhiên, tớ cũng bất bình về đội ngũ LayerZero Labs đặc biệt là CEO Bryan Pellegrino vì họ liên tục phủi tay trách nhiệm, đổ lỗi tới cho khách hàng lựa chọn thiết lập yếu và không nhận lỗi là chính hạ tầng của LayerZero Labs bị tấn công gây ra thất thoát. Tớ nghĩ ngành tài sản mã hoá càng nhanh chóng dẹp đi mấy cái cầu multisig này thì mới an tâm ngủ ngon được. 
+
+Tuy nhiên, ý kiến của tớ là nếu chỉ ngây thơ suy nghĩ là bây giờ chúng ta tập trung xây dựng những giải pháp "cầu nối" trustless (tức là không có con người can thiệp) thì mọi thứ sẽ không thay đổi mấy, rủi ro sẽ tiếp tục dịch chuyển tới một tầng khác, cụ thể theo suy nghĩ của tớ là sẽ qua phần hạ tầng blockchain. Bản chất việc "cầu nối" từ một blockchain này qua một blockchain khác đã có rủi ro rồi vì không phải blockchain nào cũng có đồng nhất những thuộc tính an toàn. Ví dụ gần đây nhất là khi Litecoin (một blockchain Layer 1) có sự cố sắp xếp lại (reorg) một loạt khối vì một lỗi nghiêm trọng trong phần mềm vận hành blockchain của miner; hậu quả là 11,050 LTC đã được "cầu nối" thông qua Thorchain và Near Intents trở thành Bitcoin (trích dẫn 1), nhưng những giao dịch chuyển số LTC này sau đó bị loại khỏi blockchain nên mất đi bên phía Litecoin, gây thiệt hại cho những đơn vị cung cấp thanh khoản trong Thorchain và Near Intents. 
+
+Vì thế, ngay cả khi giao thức "cầu nối" của bạn không có con người can thiệp, nhưng một (hoặc cả hai) đầu cầu của bạn đều không an toàn thì sẽ xảy ra những tình huống không lường trước được. Khi đó bạn lại đối mặt với thế tiến thoái lưỡng nan, cả hai con đường đều chua, một là chấp nhận có con người can thiệp nhưng sẽ gặp rủi ro con người bị tấn công, hai là thiết lập một phương án không có con người can thiệp nhưng lúc đó cái blockchain lại bị tấn công. 
+
+Tớ nghĩ lâu dài, giữa Ethereum Layer 1 và những Layer 2 thì mọi người nên lựa chọn phát hành tài sản trên Layer 1 và sử dụng cái canonical bridge (deposit smart contract) để đưa số tài sản đó lên Layer 2; cùng lúc các Layer 2 phát triển các fraud proof đặc thù cho việc rút thì có thể giảm thiểu thời gian chờ khi "cầu nối" tài sản từ Layer 2 về Layer 1. Còn câu chuyện "cầu nối" với các chain khác thì tớ nghĩ luôn có rất nhiều rủi ro tiềm ẩn và mọi người phải tự cân nhắc nơi lưu trữ tài sản của bản thân; không phải blockchain nào cũng an toàn như Ethereum.
+
+Tớ đăng kèm dưới đây đường dẫn tới một bản đánh giá kỹ thuật của OpenZeppelin về những mạng lưới blockchain phổ biến như Ethereum để mọi người tham khảo.
+- [Báo cáo đánh giá kỹ thuật các mạng lưới blockchain của OpenZeppelin](https://www.weth.vn/tai-lieu/bao-cao-danh-gia-ky-thuat-cac-blockchain-cua-openzeppelin)
+
+------
+- [1] [Báo cáo Sự Cố của Litecoin](https://x.com/AlexAuroraDev/status/2049551130443895061)
