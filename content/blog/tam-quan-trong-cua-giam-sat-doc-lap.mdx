@@ -1,0 +1,16 @@
+---
+title: Tầm Quan Trọng Của Giám Sát Độc Lập
+author: zxstim
+date: 2026-05-08
+language: vi
+thumbnail: tam-quan-trong-cua-giam-sat-doc-lap.png
+status: published
+---
+
+LayerZero Labs chưa kịp thở sau khi một loạt giao thức DeFi công bố từ bỏ sử dụng dịch vụ cầu nối (phần lớn lựa chọn chuyển qua Chainlink CCIP) thì vừa bị vài Security Researcher trong cộng đồng ETHSecurity (một nhóm trên Telegram nơi diễn ra nhiều thảo luận về an ninh blockchain) phát hiện rằng cái contract cấu hình mặc định của LayerZero không có những biện pháp an ninh nghiêm ngặt và nếu LayerZero Labs bị tấn công lần nữa như vụ việc của KelpDAO vừa rồi thì ít nhất hơn 3.13 tỷ USD giá trị tài sản mã hoá có thể bị thiệt hại. CEO Bryan Pellegrino cũng thừa nhận vấn đề này trong nhóm và khuyến khích các giao thức dừng sử dụng cái contract cấu hình mặc định này mà phải dùng một cái contract cấu hình riêng. Nhiều giao thức mới thực hiện việc thay đổi contract cấu hình sau khi LayerZero Labs bị hack trong sự cố KelpDAO, nhưng hiện tại vẫn còn một số giao thức chưa thực hiện với tổng giá trị tài sản mã hoá có thể bị thiệt hại là 178 triệu USD. Banteg (một security researcher nổi tiếng) có tổng hợp một danh sách mà mình đính kèm bên dưới (trích dẫn 1). Điều đáng lên án là cái những cái ví dùng để quản trị multisig của LayerZero Labs cho việc nâng cấp contract cấu hình mặc định kia còn được dùng để mua memecoin, chứng tỏ là đội ngũ LayerZero Labs không có một quy trình vận hành chỉn chu và nghiêm ngặt (trích dẫn 2 là giao dịch mua memecoin trên Ethereum).
+
+Tớ thấy một điều mà ngành tài sản mã hoá đang gặp phải là có rất nhiều doanh nghiệp/CEO thường xuyên lừa dối người dùng về bản chất công nghệ của sản phẩm của họ. Nếu cộng đồng không có những con người tâm huyết, thường xuyên chọc ngoáy và moi ra sự thật thì chúng ta sẽ còn thấy nhiều thảm hoạ nữa xảy ra gây thất thoát tài sản mã hoá của mọi người. Tớ nghĩ trong thời gian tới, những model AI và những công cụ phổ thông khác sẽ là một biện pháp giúp cho bất kỳ ai cũng có thể kiểm tra được cốt lõi công nghệ và "check var" những thông điệp marketing đẹp mã của các dự án/doanh nghiệp. Tớ hi vọng sẽ có nhiều dịch vụ "giám sát độc lập" được sinh ra và được tài trợ hoàn toàn bởi người dùng phổ thông để đảm bảo lợi ích đứng đúng chỗ thay vì bị mua chuộc bởi những doanh nghiệp bất lương. Khi sự cố đã xảy ra rồi thì việc thu hồi tài sản mã hoá bị mất hoặc truy tố trách nhiệm đều là những quy trình rất tốn thời gian và tiền bạc, tốt nhất nên phòng tránh sự cố xảy ra từ đầu. Phòng bệnh vẫn luôn hơn chữa bệnh.
+
+-----
+- [1] [Danh sách các giao thức dùng contract cấu hình mặc định của banteg](https://gist.github.com/banteg/cbf75052cffc9a38f0e23e43f2055e70)
+- [2] [Giao dịch mua memecoin trên Ethereum của một ví quản trị multisig của LayerZero Labs](https://etherscan.io/tx/0x78a6190f7c39ede14d6506c0f062c5749212bafd11a08ed5060df8c59a3feb47)
