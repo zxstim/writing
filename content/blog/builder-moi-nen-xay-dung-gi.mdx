@@ -1,0 +1,25 @@
+---
+title: Builder Mới Nên Xây Dựng Gì?
+author: zxstim
+date: 2026-05-14
+language: vi
+thumbnail: builder-moi-nen-xay-dung-gi.png
+status: published
+---
+
+Bài viết này dành cho những bạn builder có ý định khởi nghiệp trong ngành tài sản mã hoá với quy mô 1 người (solo founder). Do có mấy bạn hỏi tớ rằng các bạn có ý định khởi nghiệp trong ngành này thì nên xây dựng cái gì; nên tớ sẽ liệt kê một số quan điểm, cho các bạn dựa vào bộ khung này để quyết định sẽ xây gì nhé.
+
+Đầu tiên, tớ nghĩ bất kỳ builder nào bắt đầu hành trình solo thì cũng nên viết một cái ví tài sản mã hoá trước. Bạn thích tech stack nào thì viết cái đó, không quá quan trọng phân biệt, nhưng một số tech stack sẽ có thư viện hỗ trợ sẵn phần cryptography thì đỡ công bạn hơn rất nhiều (như typescript thì có Viem và Ethers). Khi bạn viết một cái ví, bạn sẽ đi qua đủ hết các thể loại từ cách khởi tạo và quản lý key/seed phrase (hoặc nếu là ví smart contract thì sẽ ký kiểu khác), hiểu được kết nối Ethereum RPC, hiểu được các yếu tố bảo mật, hiểu các EIP liên quan, v.v... Quan trọng là lúc này bạn chưa đụng gì đến smart contract hết, learning curve tương đối thấp, AI có thể hỗ trợ bạn rất tốt. Điểm thuận lợi nữa là bạn sẽ có sản phẩm để tiếp thị tới người dùng sớm. Hiện tại thị trường ví khá mở, vẫn nhiều cơ hội để hút người dùng từ ví này qua ví khác nếu bạn chịu khó suy nghĩ kỹ về đối tượng khách hàng của bạn. Thường viết ra một cái ví không quá khó, viết một cái ví mà người khác muốn dùng mới khó.
+
+Sau đó thì bạn mới bắt đầu đi tiếp tới các loại sản phẩm khác tuỳ vào mong muốn, cơ hội có sẵn của bạn. Tớ nghĩ ngành tài sản mã hoá có các hướng phát triển sản phẩm phù hợp cho solo builder sau đây:
+- DeFi: phát triển các giao thức/công cụ phục vụ cho tài chính phi tập trung/tài chính onchain. Đây là món ăn khó nhằn, cần kinh nghiệm trước khi bước vào. DeFi là một ngạch rất rộng, mình chắc sẽ viết 1 bài chuyên sâu về ngạch này.
+- Hạ tầng cho ví: bạn có thể phát triển các dạng công cụ mô phỏng giao dịch, công cụ giúp ký giao dịch an toàn hơn (clear signing), các dạng API chống rủi ro/lừa đảo, các dạng API thông tin, v.v...
+- Privacy: phát triển các dạng giao thức hoặc công cụ bảo vệ quyền riêng tư trên môi trường onchain.
+- Thanh toán: Ứng dụng stablecoin để trong thanh toán, các dạng cổng thanh toán SDK cho người và agent, các dạng neobank.
+- Định danh (ID): phát triển các giải pháp định danh bảo toàn riêng tư cho con người để phân biệt giữa người và AI/bot. Ngoài việc định danh còn có các nhu cầu xác minh những thứ khác liên quan đến con người ở thế giới thực như giá trị tài sản, điểm tín dụng, thành tích.
+- Phần cứng: hiện tại nhu cầu đang tăng cao cho các dạng phần cứng giúp bảo vệ tài sản mã hoá, từ ví cứng, đến các thiết bị chuyên biệt phục vụ cho việc tương tác tài sản mã hoá hằng ngày (không phải điện thoại).
+- Ethereum/Layer 2: mình nghĩ có một ngạch cũng khó nhằn là xây dựng những công cụ hạ tầng cho blockchain. Bạn có thể viết Ethereum client, công cụ indexer, hoặc kết hợp Ethereum Client và indexer với nhau, hoặc viết block explorer, hạ tầng xác minh mã nguồn smart contract, giải pháp decompile smart contract, v.v...
+
+Tớ cũng khuyến khích bạn nói chuyện với AI để nó nghiên cứu những gợi ý trên (hoặc đi sâu vào nữa) và giúp bạn xác minh định hướng bản thân tốt hơn. Có một điểm là bạn nên cân nhắc kỹ trước khi tham gia các Hackathon trong ngành tài sản mã hoá để săn giải. Phàn nàn lớn nhất của tớ về Hackathon ấy là thường quy trình chấm điểm trao giải thì xoanh quanh góc nhìn của ban giám khảo, trong khi sản phẩm thực sự có nhu cầu khi ra thị trường có thể hoàn toàn khác góc nhìn đó. Không ai có thể đoán trước được thị trường muốn gì đâu, ngay cả bản thân tớ hoặc bất kỳ ai. Ngay cả khi bạn đang copy một ý tưởng đã viral, nhưng bạn thực thi kém thì vẫn thất bại thôi. Chỉ khi bạn có người dùng trả phí để dùng sản phẩm của bạn thì mới thực sự là bạn đang chạm vào long mạch.
+
+Tạm dừng ở đây. Các bạn quan tâm có thể nghe thêm một số gợi ý và chất vấn những quan điểm của mình tại buổi meetup của Mantle. Link Luma đăng ký ở bên dưới vào tối thứ 6 ngày mai.
