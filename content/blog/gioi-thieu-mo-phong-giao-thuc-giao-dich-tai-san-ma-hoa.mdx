@@ -1,0 +1,22 @@
+---
+title: Giới Thiệu Mô Phỏng Giao Thức Giao Dịch Tài Sản Mã Hoá
+author: zxstim
+date: 2026-05-31
+language: vi
+thumbnail: gioi-thieu-mo-phong-giao-thuc-giao-dich-tai-san-ma-hoa.png
+status: published
+---
+
+Mình tạm vui với phiên bản v0 của Mô Phỏng Giao Thức Giao Dịch Tài Sản Mã Hoá này. Cho những bạn builder hứng thú thì code có mã nguồn mở trên GitHub (link bên dưới). 
+
+[sim.defi.vn](https://sim.defi.vn)
+
+Bộ mô phỏng có cấu trúc sơ bộ như sau:
+- Token ETH và VND triển khai trên Arbitrum Sepolia đại diện cho 2 loại tài sản mã hoá được mô phỏng.
+- 2 token trên được cho vào một Uniswap v4 pool (bể thanh khoản), chưa có hook để cấu hình thuế (làm sau).
+- Server liên tục thu thập những giao dịch từ pool cho vào sqlite để cho giao diện hiển thị tới người dùng.
+- Server có một hot wallet được sử dụng để ứng dụng EIP7702, tài trợ gas của tất cả giao dịch cho người dùng và dùng để tạo ra trải nghiệm 1 click trade. Một nhấn là mọi thứ được thực hiện, nhưng tài sản mã hoá vẫn đang lưu ký trên ví người dùng (server không lưu ký, chỉ gửi giao dịch lên onchain).
+- Ứng dụng tạo một ví lưu trong browser và mã hoá bằng 6 chữ số khi bạn khởi tạo. Tớ quyết định lựa chọn hình thức này thay vì passkey vì vẫn còn kha khá thiết bị chưa được cài đặt đúng để kích hoạt, tớ sẽ cân nhắc cho thêm 1 lựa chọn nữa trong phiên bản tiếp theo.
+- Mỗi người dùng lúc tạo ví được nhận ngay 5.000.000 token VND và 0.1 token ETH để sử dụng giao dịch ngay lập tức.
+
+Hi vọng mọi người trải nghiệm vui vẻ và có thể cho tớ ý kiến để cải thiện sản phẩm. Mong rằng đây là một công cụ giúp mọi người hiểu được hơn về tài chính onchain/DeFi.
