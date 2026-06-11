@@ -1,0 +1,16 @@
+---
+title: Nhìn Lại Những Gì Ethereum Đã Đạt Được
+author: zxstim
+date: 2026-06-11
+language: vi
+thumbnail: nhin-lai-nhung-gi-ethereum-da-dat-duoc.png
+status: published
+---
+
+Cũng gần một tuần rồi chưa lên bài. Mình đang tạm thời bận thiết kế hệ thống cho một sản phẩm thanh toán xuyên biên giới và neobank. Giờ mới có chút thời gian để viết về một số suy nghĩ mình nảy ra gần đây.
+
+Khi mình thiết kế một hệ thống thanh toán truyền thống, có nhiều bài toán mà bạn phải chú ý đến liên quan đến việc quản lý vòng đời của một giao dịch. Hạ tầng thanh toán truyền thống có rất nhiều lớp, mỗi lớp có những quy định và đặc thù kỹ thuật riêng. Trong mỗi lớp còn có những đơn vị đảm nhận một chức năng, liên kết chặt chẽ với nhau để vận hành xuyên suốt. Khi bạn chuyển khoản QR hoặc khi bạn quẹt một cái thẻ, để giao dịch của bạn được thực hiện thì phải có rất nhiều hệ thống kết nối với nhau để xử lý dữ liệu này và đảm bảo giao dịch của bạn được thực hiện và đối soát chính xác (không để thất thoát). Bạn phải suy nghĩ từ hệ thống lõi quản trị số dư của từng khách hàng/người dùng. Bạn phải suy nghĩ về mỗi giao dịch phải có khả năng đối soát từ nhiều nguồn để đảm bảo không có thất thoát. Bạn phải suy nghĩ về khả năng bảo mật, quy trình quản lý, không để nhân sự tự tiện thay đổi dữ liệu gây thiệt hại đến cho khách hàng/người dùng. Bạn còn phải suy nghĩ nhiều về những phần mềm bạn sẽ sử dụng để vận hành hằng ngày.
+
+Mạng lưới blockchain Ethereum cho phép bạn tất cả những thứ mà hạ tầng thanh toán truyền thống tốn rất nhiều năm để xây dựng từ công nghệ, quy trình, đến luật pháp. Mỗi người dùng có một tài khoản mà chỉ họ mới có thể ký giao dịch được. Blockchain Ethereum đảm bảo các giao dịch được thực hiện chính xác, không có thất thoát. Hạ tầng smart contract trên Ethereum cho phép bạn có thể cấu hình những logic phù hợp cho nhu cầu sản phẩm của bạn. Không những thế, uptime của Ethereum là 100%; một con số mà hạ tầng tài chính truyền thống không thể đạt được. Toàn bộ mã nguồn của Ethereum đều mở hết. Bạn có thể kiểm tra và đánh giá hạ tầng dễ dàng trước khi xây dựng sản phẩm, không lo lắng đắn đo suy nghĩ lựa chọn đơn vị cung ứng công nghệ mà không biết được hệ thống đằng sau của họ chất lượng thực sự thế nào.
+
+Gần đây khi đội ngũ ZCash cùng với một chuyên gia an ninh công nghệ phát hiện ra lỗ hổng trong Orchard pool (một sản phẩm dùng để ẩn coin ZEC để đảm bảo quyền riêng tư), tiềm ẩn rủi ro kẻ xấu có thể tạo ra số lượng lớn ZEC coin trong pool, gây thiệt hại cho người dùng (kẻ xấu có thể rút thanh khoản của pool) và cực kỳ khó để phát hiện được. Tớ mới thực sự thấy kỳ tích của Ethereum khi vận hành trơn tru xuyên suốt các phiên bản cập nhật; mà toàn cập nhật real time (trong lúc mạng lưới đang hoạt động) chứ không cần phải "tắt" server bảo trì. Tớ sẽ cố gắng viết thêm về những quyết định công nghệ cốt lõi trong mạng lưới Ethereum để mọi người có thể hiểu thêm về nỗ lực của hàng trăm, hàng nghìn lập trình viên trên toàn thế giới đang xây dựng và đóng góp cho Ethereum.
