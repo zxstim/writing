@@ -1,8 +1,8 @@
-import { RootProvider } from 'fumadocs-ui/provider/next';
+import { RootProvider } from "fumadocs-ui/provider/next";
+import Script from "next/script";
 import type { Metadata } from "next";
-import './global.css';
+import "./global.css";
 import { JetBrains_Mono } from "next/font/google";
-
 
 const jetBrainsMono = JetBrains_Mono({ subsets: ["latin"] });
 
@@ -35,9 +35,18 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Layout({ children }: LayoutProps<'/'>) {
+export default function Layout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={jetBrainsMono.className} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={jetBrainsMono.className}
+      suppressHydrationWarning
+    >
+      <Script
+        defer
+        src="https://analytics.zxstim.com/script.js"
+        data-website-id="987056dc-b98e-43e2-91fe-4bab190d562d"
+      />
       <body className="flex flex-col min-h-screen pb-12">
         <RootProvider>{children}</RootProvider>
       </body>
