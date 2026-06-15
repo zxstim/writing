@@ -89,18 +89,17 @@ export async function generateMetadata(props: {
   const page = blog.getPage([params.slug]);
   if (!page) notFound();
 
-  const { title, description, thumbnail } = page.data;
-  // Relative URLs resolve against `metadataBase` set in the root layout.
-  const images = thumbnail
-    ? [
-        {
-          url: `/blog-images/thumbnails/${thumbnail}`,
-          width: 1200,
-          height: 630,
-          alt: title,
-        },
-      ]
-    : undefined;
+  const { title, description, thumbnail, author, date, language } = page.data;
+
+  // Next.js does NOT deep-merge `openGraph`/`twitter` from the root layout — a
+  // per-route definition replaces the parent's entirely. So re-declare the
+  // shared fields (siteName, locale, twitter creator) and fall back to the site
+  // default image when a post has no thumbnail, otherwise that post ships with
+  // no social card. Relative URLs resolve against `metadataBase` in the layout.
+  const imageUrl = thumbnail
+    ? `/blog-images/thumbnails/${thumbnail}`
+    : "/zxstim-tbn.png";
+  const images = [{ url: imageUrl, width: 1200, height: 630, alt: title }];
 
   return {
     title,
@@ -109,14 +108,19 @@ export async function generateMetadata(props: {
       title,
       description,
       url: `/blog/${params.slug}`,
+      siteName: "ZxStim",
+      locale: language === "vi" ? "vi_VN" : "en_US",
       type: "article",
-      ...(images ? { images } : {}),
+      publishedTime: date.toISOString(),
+      authors: [author],
+      images,
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      ...(images ? { images } : {}),
+      creator: "@zxstim",
+      images,
     },
   };
 }
