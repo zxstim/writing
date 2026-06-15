@@ -1,42 +1,45 @@
-"use client";
-
-import { blog } from "@/lib/source";
+import { blog, getTweets } from "@/lib/source";
 import BlogCard from "@/components/blog-card";
+import TweetCard from "@/components/tweet-card";
+import BlogListTabs from "@/components/blog-list-tabs";
 
 export default function BlogList() {
   const posts = blog.getPages();
   const publishedPosts = posts.filter(
     (post) => post.data.status === "published",
   );
-  const viPosts = publishedPosts.filter((post) => post.data.language === "vi");
-  const enPosts = publishedPosts.filter((post) => post.data.language === "en");
+  const viPosts = publishedPosts
+    .filter((post) => post.data.language === "vi")
+    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  const enPosts = publishedPosts
+    .filter((post) => post.data.language === "en")
+    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+  const tweets = getTweets();
 
   return (
-    <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
-      <div className="flex flex-col">
-        <h2 className="font-bold bg-fd-primary text-fd-secondary px-2 w-fit rounded-none">
-          English
-        </h2>
-        <div className="grid grid-cols-1 border-2 border-fd-muted-foreground divide-y-2 divide-fd-muted-foreground">
-          {enPosts
-            .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-            .map((post) => (
-              <BlogCard key={post.url} post={post} />
-            ))}
+    <BlogListTabs
+      tweets={
+        <div className="flex flex-col gap-4">
+          {tweets.map((tweet) => (
+            <TweetCard key={tweet.info.path} tweet={tweet} />
+          ))}
         </div>
-      </div>
-      <div className="flex flex-col">
-        <h2 className="font-bold bg-fd-primary text-fd-secondary px-2 w-fit rounded-none">
-          Tiếng Việt
-        </h2>
+      }
+      english={
         <div className="grid grid-cols-1 border-2 border-fd-muted-foreground divide-y-2 divide-fd-muted-foreground">
-          {viPosts
-            .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-            .map((post) => (
-              <BlogCard key={post.url} post={post} />
-            ))}
+          {enPosts.map((post) => (
+            <BlogCard key={post.url} post={post} />
+          ))}
         </div>
-      </div>
-    </div>
+      }
+      vietnamese={
+        <div className="grid grid-cols-1 border-2 border-fd-muted-foreground divide-y-2 divide-fd-muted-foreground">
+          {viPosts.map((post) => (
+            <BlogCard key={post.url} post={post} />
+          ))}
+        </div>
+      }
+    />
   );
 }

@@ -2,7 +2,7 @@ import { docs } from "fumadocs-mdx:collections/server";
 import { type InferPageType, loader, multiple } from "fumadocs-core/source";
 import { lucideIconsPlugin } from "fumadocs-core/source/lucide-icons";
 import { toFumadocsSource } from "fumadocs-mdx/runtime/server";
-import { blogPosts } from "fumadocs-mdx:collections/server";
+import { blogPosts, tweets } from "fumadocs-mdx:collections/server";
 
 // See https://fumadocs.dev/docs/headless/source-api for more info
 export const source = loader({
@@ -15,6 +15,15 @@ export const blog = loader({
   baseUrl: "/blog",
   source: toFumadocsSource(blogPosts, []),
 });
+
+// "tweet" content type: hand-written posts styled like X / Twitter posts. These
+// are not routed pages — each entry carries its compiled MDX `body` plus the
+// frontmatter identity/date. Returned newest first.
+export type TweetEntry = (typeof tweets)[number];
+
+export function getTweets(): TweetEntry[] {
+  return [...tweets].sort((a, b) => b.date.getTime() - a.date.getTime());
+}
 
 export function getPageImage(page: InferPageType<typeof source>) {
   const segments = [...page.slugs, "image.png"];

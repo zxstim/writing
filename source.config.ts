@@ -35,6 +35,24 @@ export const blogPosts = defineCollections({
   }),
 });
 
+// "tweet" content type — short posts written by hand and styled to look like an
+// X / Twitter post. The MDX file body is the tweet text; frontmatter carries the
+// display identity and date. Consumed directly (no routing) and rendered on the
+// home timeline by `components/tweet-card.tsx`.
+export const tweets = defineCollections({
+  type: "doc",
+  dir: "content/tweets",
+  schema: z.object({
+    author: z.string().default("ZxStim"),
+    handle: z.string().default("zxstim"),
+    date: z.date(),
+    language: z.enum(["en", "vi"]).default("en"),
+    // Optional explicit link to the post on X. If omitted and the filename is
+    // the numeric tweet id, the link is derived as x.com/<handle>/status/<id>.
+    url: z.string().optional(),
+  }),
+});
+
 export default defineConfig({
   mdxOptions: {
     // MDX options

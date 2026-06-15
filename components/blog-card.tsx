@@ -14,6 +14,9 @@ export default function BlogCard({
       className="flex flex-col gap-1 rounded-none overflow-hidden p-4 hover:bg-fd-accent"
     >
       <h2 className="text-xl font-semibold mb-2">{post.data.title}</h2>
+      <p className="text-sm text-fd-muted-foreground mb-2">
+        {post.data.description ? post.data.description : ""}
+      </p>
       <div className="flex flex-row gap-1">
         <p className="text-sm text-fd-muted-foreground">
           {post.data.date.toLocaleDateString("en-CA", {
