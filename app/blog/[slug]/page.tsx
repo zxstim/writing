@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { InlineTOC } from "fumadocs-ui/components/inline-toc";
 import { getMDXComponents } from "@/mdx-components";
@@ -83,15 +84,39 @@ export function generateStaticParams(): { slug: string }[] {
 
 export async function generateMetadata(props: {
   params: Promise<{ slug: string }>;
-}): Promise<{
-  title: string;
-  description: string | undefined;
-}> {
+}): Promise<Metadata> {
   const params = await props.params;
   const page = blog.getPage([params.slug]);
   if (!page) notFound();
+
+  const { title, description, thumbnail } = page.data;
+  // Relative URLs resolve against `metadataBase` set in the root layout.
+  const images = thumbnail
+    ? [
+        {
+          url: `/blog-images/thumbnails/${thumbnail}`,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ]
+    : undefined;
+
   return {
-    title: page.data.title,
-    description: page.data.description,
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: `/blog/${params.slug}`,
+      type: "article",
+      ...(images ? { images } : {}),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      ...(images ? { images } : {}),
+    },
   };
 }
