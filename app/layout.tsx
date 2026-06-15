@@ -9,11 +9,11 @@ const jetBrainsMono = JetBrains_Mono({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "ZxStim",
   description: "Building and shipping software products",
-  metadataBase: new URL("https://www.zxstim.com"),
+  metadataBase: new URL("https://writing.zxstim.com"),
   openGraph: {
     title: "ZxStim",
     description: "Building and shipping software products",
-    url: "https://www.zxstim.com",
+    url: "https://writing.zxstim.com",
     siteName: "ZxStim",
     images: [
       {
