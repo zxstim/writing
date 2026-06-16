@@ -7,12 +7,12 @@ import { JetBrains_Mono } from "next/font/google";
 const jetBrainsMono = JetBrains_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "ZxStim",
-  description: "Building and shipping software products",
+  title: "ZxStim's Writings",
+  description: "A collection of my thoughts",
   metadataBase: new URL("https://writing.zxstim.com"),
   openGraph: {
-    title: "ZxStim",
-    description: "Building and shipping software products",
+    title: "ZxStim's Writings",
+    description: "A collection of my thoughts",
     url: "https://writing.zxstim.com",
     siteName: "ZxStim",
     images: [
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "ZxStim",
-    description: "Building and shipping software products",
+    title: "ZxStim's Writings",
+    description: "A collection of my thoughts",
     creator: "@zxstim",
     images: ["/zxstim-tbn.png"],
   },
