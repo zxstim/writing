@@ -1,0 +1,19 @@
+---
+title: Thuật Toán Mã Hoá Không Dễ
+author: zxstim
+date: 2026-06-28
+language: vi
+thumbnail: thuat-toan-ma-hoa-khong-de.png
+status: published
+---
+
+Ví SecondFi của hệ sinh thái Cardano vừa bị tấn công vì đội ngũ phát triển đã áp dụng thuật toán mã hoá sai. Theo phân tích của Charles Guillemet, CTO của Ledger, (trích dẫn 1) ứng dụng ví SecondFi sử dụng nonce bắt nguồn từ dữ liệu giao dịch công khai (sau khi hash), thay vì đúng theo chuẩn là nonce phải bắt nguồn từ private key và dữ liệu giao dịch. Vì lý do đó, ví chỉ cần thực hiện 1 giao dịch là kẻ xấu có thể sử dụng dữ liệu giao dịch công khai đó giải mã ngược về private key của chủ ví. Đây là lý do tại sao có một câu nói phổ biến trong ngành phần mềm là "Don't roll your own crypto" ("Đừng tự viết thuật toán mã hoá"). Thuật toán mã hoá cần kiến thức chuyên sâu về toán, mật mã học và bảo mật phần mềm. Tất cả những thuật toán mã hoá và thư viện sử dụng đều phải được kiểm tra kỹ càng bởi nhiều chuyên gia trước khi đưa vào sử dụng.
+
+Tớ thấy tệ khi một ứng dụng ví phát hành bởi một trong những tổ chức đồng sáng lập của Cardano là Emurgo lại mắc một lỗi ứng dụng thuật toán mã hoá sai thế này, đáng lẽ phải được phát hiện ngay từ giai đoạn thử nghiệp nội bộ. Ứng dụng ví SecondFi cũng không có mã nguồn mở để cho cộng đồng và các chuyên gia kiểm tra.
+
+Đội ngũ SecondFi có thực hiện một cuộc "giải cứu" bằng việc tấn công tất cả các ví của người dùng bằng chính lỗ hổng ở trên, thu ADA về ví lưu ký tạm rồi mới có quy trình để mọi người xin lại số tài sản. Quy trình xin lại số tài sản cũng sẽ khoai vì sẽ phải dựa vào seed phrase của người dùng thay vì private key (vì kẻ xấu đã có private key) để chứng minh quyền sở hữu.
+
+Nói chung là nhà đầu tư Cardano nên sớm từ bỏ cái hệ sinh thái ghẻ đó và chuyển sang Ethereum. Không thiếu các lựa chọn ví tự lưu ký trên Ethereum, bảo mật và mã nguồn mở.
+
+------
+- [1] [Phân tích của Charles Guillemet, CTO của Ledger, về sự cố SecondFi](https://x.com/P3b7_/status/2070121675102863721)
