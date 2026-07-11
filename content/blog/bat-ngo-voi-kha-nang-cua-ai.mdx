@@ -1,0 +1,17 @@
+---
+title: Bất Ngờ Với Khả Năng Của AI
+author: zxstim
+date: 2026-07-11
+language: vi
+thumbnail: bat-ngo-voi-kha-nang-cua-ai.png
+status: published
+---
+
+Gần đây Jarred Sumner, người viết công cụ Bun toàn năng cho JavaScript/Typescript, tung ra một bài blog thuật lại quá trình chuyển Bun từ Zig sang Rust bằng Claude Code.
+
+Bạn có thể đọc bài blog tớ để bên dưới để hiểu thêm về quá trình chi tiết và tại sao Jarred đủ tự tin vào phiên bản Bun viết bằng Rust. Tớ thì muốn nêu bật phần chi phí và thời gian mà Jarred viết trong blog. Tổng thời gian Claude thực hiện là 11 ngày và chi phí token theo giá API là $165.000. Jarred có ghi chú rằng nếu chạy bằng cơm thì quá trình viết lại cần 3 kỹ sư có kiến thức của toàn bộ mã nguồn Bun và khoảng 1 năm để hoàn thành. Mức lương trung bình vị trí kỹ sư runtime của team Bun là khoảng $400.000/năm; 3 kỹ sư thì là $1.200.000/năm; cộng thêm chi phí cơ hội thời gian của 3 kỹ sư. Nếu mà phiên bản Rust của Bun có thể chạy được ổn định, và loại bỏ hoàn toàn các lỗi liên quan đến tràn bộ nhớ của Bun, thì tớ nghĩ chi phí ở trên quá rẻ và thời gian quá nhanh cho một dự án viết lại kiểu này.
+
+Tuần rồi tớ cũng vừa có tham gia cố vấn cho một đội ngũ để thực hiện viết lại cho một bộ mã nguồn Java + Play framework + micro service cũ (khoảng 700.000 dòng mã) sang Java + Spring Boot + và mô hình micro service mới. Tớ cũng đang tận dụng Claude Code rất nhiều để thực hiện bóc tách bộ mã nguồn cũ đó ra, rồi lên kế hoạch viết lại mà vẫn giữ nguyên interface cho API (đảm bảo tương thích ngược), và triển khai lõi + API phiên bản mới. Hi vọng dự án của tớ sẽ diễn ra tốt đẹp trong thời gian tới. Nếu mà thành công thì tớ sẽ viết một bài giải thích phương án của tớ sau nhé.
+
+--------
+- [1] [Rewriting Bun in Rust](https://bun.com/blog/bun-in-rust)
